@@ -1,0 +1,9 @@
+import os
+from llama_index.llms.openai.utils import ALL_AVAILABLE_MODELS , CHAT_MODELS
+
+os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
+
+OPENROUTER_MODEL_CONTEXT_WINDOW = 128000 
+ALL_AVAILABLE_MODELS["openai/gpt-4o-mini"] = OPENROUTER_MODEL_CONTEXT_WINDOW
+ALL_AVAILABLE_MODELS["openai/gpt-4o-mini"] = OPENROUTER_MODEL_CONTEXT_WINDOW
+CHAT_MODELS["openai/gpt-4o-mini"] = OPENROUTER_MODEL_CONTEXT_WINDOW
