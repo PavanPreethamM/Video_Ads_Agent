@@ -83,14 +83,14 @@ class AdsManagerAgent:
         print("Analysis Complete")
         return analysis
 
-    def save_results(self , ads: list, analysis: dict, serch_term : str) -> tuple:
+    def save_results(self , ads: list, analysis: dict, search_term : str) -> tuple:
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
         raw_filename = f"data/raw_ads/ads_{timestamp}.json"
         with open(raw_filename , "w" , encoding="utf-8") as f :
             json.dump({
-                "search_term" : serch_term,
+                "search_term" : search_term,
                 "scraped_at" : datetime.now().isoformat(),
                 "total_ads" : len(ads),
                 "ads" : ads,
@@ -98,7 +98,10 @@ class AdsManagerAgent:
 
         analysis_filename = f"data/analyzed_ads/analysis_{timestamp}.json"
         with open(analysis_filename , "w" , encoding="utf-8") as f:
-            json.dump(analysis , f, indent=2 ,ensure_ascii=False)
+            json.dump({
+                    "search_term": search_term,
+                    **analysis,
+                }, f, indent=2, ensure_ascii=False)
 
         print(f"Raw ads saved to {raw_filename}")
         print(f"analysis file saved to {analysis_filename}")
@@ -108,7 +111,7 @@ async def main():
     agent = AdsManagerAgent()
     ads = agent.scrape_ads(search_term="stock trading alerts", max_int =10)
     analysis = await agent.analyze_ads(ads)
-    agent.save_results(ads , analysis , serch_term="stock trading alerts")
+    agent.save_results(ads , analysis , search_term="stock trading alerts")
 
 if __name__ == "__main__" :
     asyncio.run(main())
