@@ -5,4 +5,4 @@ __pycache__/
 data/raw_ads/*.json
 data/analyzed_ads/*.json
 data/scripts/*.json
-data/videos/*.json
+data/videos/*.txt
