@@ -1,4 +1,4 @@
-# CrowdWisdomTrading — AI Video Ad Generation Pipeline
+# AI Video Ad Generation Pipeline
 
 A three-agent pipeline that researches competitor ads, generates data-grounded video ad scripts, and produces a production-ready brief for video generation — built with the `hermes-ai` framework, OpenRouter, Apify, and Tavily.
 
@@ -105,7 +105,7 @@ make demo
 
 ## Known Limitations / Honest Notes
 
-- `ScriptAgent`'s "unique data" section (CrowdWisdomTrading's proprietary performance stats/testimonials) is currently a placeholder — intended to be replaced with real data from the reference materials provided in the original brief.
+- `ScriptAgent`'s "unique data" section is currently a placeholder — intended to be replaced with real data from the reference materials provided in the original brief.
 - Video generation via OpenMontage, with zero paid API keys configured, is limited to Remotion-based motion graphics and local Piper TTS narration — no AI-generated video clips or images. This is a genuine, working, zero-cost path, not a mock.
 - Meta's public Ad Library doesn't expose real spend/CTR data, so "best working ads" is approximated using how long an ad has remained active (advertisers tend to keep working ads live longer).
 
